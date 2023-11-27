@@ -1,3 +1,2 @@
 #!/bin/bash
-
 [ -f "$PYFILE" ] && python3 "$PYFILE"
