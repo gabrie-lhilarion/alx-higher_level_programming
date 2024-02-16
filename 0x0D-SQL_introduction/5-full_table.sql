@@ -1,4 +1,4 @@
--- Assuming you are using MySQL
+-- Show columns
 
-SHOW COLUMNS FROM hbtn_0c_0.first_table;
+SHOW COLUMNS FROM first_table;
 
