@@ -1,3 +1,3 @@
--- Show columns
+-- Show full_description
 
-SHOW COLUMNS FROM first_table;
+SHOW CREATE TABLE `first_table`;
