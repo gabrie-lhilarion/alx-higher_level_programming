@@ -1,3 +1,3 @@
--- Assuming you are using MySQL
-USE hbtn_0c_0;
+-- Show tables of a given database
+
 SHOW TABLES;
