@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-This module defines the Rectangle class.
-"""
-
 
 class Rectangle:
     """
@@ -111,7 +107,7 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle, useable with eval().
+        Returns a string representation of the rectangle, usable with eval().
 
         Returns:
             str: The string representation of the rectangle.
@@ -150,3 +146,16 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """
+        Class method to create a square Rectangle instance.
+
+        Args:
+            size (int): The size of the square. Defaults to 0.
+
+        Returns:
+            Rectangle: A new Rectangle instance with width == height == size.
+        """
+        return cls(size, size)
