@@ -3,11 +3,11 @@
 This module defines the Rectangle class.
 """
 
+
 class Rectangle:
     """
     Represents a rectangle.
     """
-
 
     def __init__(self, width=0, height=0):
         """
@@ -89,4 +89,3 @@ class Rectangle:
             int: The perimeter of the rectangle.
         """
         return 2 * (self.__width + self.__height) if self.__width and self.__height else 0
-
