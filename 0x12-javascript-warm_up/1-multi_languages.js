@@ -1,7 +1,13 @@
 #!/usr/bin/node
 
-console.log('C is fun');
+const langOne = 'C is fun';
 
-console.log('Python is cool');
+const langTwo = 'Python is cool';
 
-console.log('avaScript is amazing');
+const langOne = 'JavaScript is amazing';
+
+console.log(langOne);
+
+console.log(langTwo);
+
+console.log(langThree);
