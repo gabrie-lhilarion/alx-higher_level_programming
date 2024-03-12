@@ -4,7 +4,7 @@ const langOne = 'C is fun';
 
 const langTwo = 'Python is cool';
 
-const langOne = 'JavaScript is amazing';
+const langThree = 'JavaScript is amazing';
 
 console.log(langOne);
 
