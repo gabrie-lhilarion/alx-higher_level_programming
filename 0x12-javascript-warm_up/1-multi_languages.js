@@ -1,13 +1,13 @@
 #!/usr/bin/node
 
-const langOne = 'C is fun';
+const langOne = 'C is fun'
 
-const langTwo = 'Python is cool';
+const langTwo = 'Python is cool'
 
-const langThree = 'JavaScript is amazing';
+const langThree = 'JavaScript is amazing'
 
-console.log(langOne);
+console.log(langOne)
 
-console.log(langTwo);
+console.log(langTwo)
 
-console.log(langThree);
+console.log(langThree)
