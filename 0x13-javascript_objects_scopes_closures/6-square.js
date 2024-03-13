@@ -13,9 +13,9 @@ charPrint(c) {
   }
 
   let row = c.repeat(this.width)
-    for (let i = 0; i < this.height; i++) {
-      console.log(row)
-    }
+  for (let i = 0; i < this.height; i++) {
+    console.log(row)
+  }
   }
 }
 
