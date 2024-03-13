@@ -3,16 +3,16 @@
 const MySquare = require('./5-square')
 
 class Square extends MySquare {
-  constructor(size) {
+  constructor (size) {
     super(size, size)
   }
-  
-  charPrint(c) {
+
+  charPrint (c) {
     if (!c) {
       c = 'X'
     }
 
-    let row = c.repeat(this.width)
+    const row = c.repeat(this.width)
     for (let i = 0; i < this.height; i++) {
       console.log(row)
     }

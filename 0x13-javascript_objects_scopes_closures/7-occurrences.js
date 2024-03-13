@@ -8,5 +8,3 @@ exports.nbOccurences = function (list, searchElement) {
 
   return occurances
 }
-
-
