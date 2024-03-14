@@ -7,4 +7,3 @@ const langTwo = 'Python is cool'
 const langThree = 'JavaScript is amazing'
 
 console.log(`${langOne}\n${langTwo}\n${langThree}`);
-
