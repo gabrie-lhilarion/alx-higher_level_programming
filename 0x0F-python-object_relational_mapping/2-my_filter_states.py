@@ -3,17 +3,18 @@
 import MySQLdb
 import sys
 
-def list_states_starting_with_N(username, password, database):
+def search_states(username, password, database, state_name):
     """
-    Connects to MySQL, lists states starting with 'N' from the specified database.
+    Connects to MySQL, searches for the specified state name in the states table.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
         database (str): Name of the MySQL database containing the states table.
+        state_name (str): Name of the state to search for.
 
     Returns:
-        None. Prints the list of states starting with 'N' to the console.
+        None. Prints the matching states to the console.
     """
     try:
         # Connect to MySQL server
@@ -26,8 +27,11 @@ def list_states_starting_with_N(username, password, database):
         )
         cursor = connection.cursor()
 
-        # Execute query
-        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        # Construct SQL query
+        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+
+        # Execute query with user input
+        cursor.execute(query, (state_name,))
 
         # Fetch all results
         states = cursor.fetchall()
@@ -48,6 +52,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
+    state_name = sys.argv[4]
     
-    # Call the list_states_starting_with_N function with provided arguments
-    list_states_starting_with_N(username, password, database)
+    # Call the search_states function with provided arguments
+    search_states(username, password, database, state_name)
