@@ -1,23 +1,26 @@
 #!/usr/bin/python3
 
-
 import MySQLdb
 import sys
 
 
 def list_states(username, password, database):
     """
-    Connects to MySQL, lists states from database.
+    Connects to a MySQL database and lists all states.
+
+    This function connects to a MySQL server using the provided username,
+    password, and database name. It executes a SQL query to retrieve all
+    states from the 'states' table in the database, orders them by ID
+    in ascending order, fetches all results, and prints them to the console.
 
     Args:
-        username (str): MySQL username.
-        password (str): MySQL password.
-        database (str): Name of the MySQL database.
+        username (str): The MySQL username.
+        password (str): The MySQL password.
+        database (str): The name of the MySQL database.
 
     Returns:
-        None. Prints the list of states to the console.
+        None
     """
-
     try:
         # Connect to MySQL server
         connection = MySQLdb.connect(
@@ -29,7 +32,7 @@ def list_states(username, password, database):
         )
         cursor = connection.cursor()
 
-        # Execute query
+        # Execute query to retrieve all states
         cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
         # Fetch all results
@@ -60,3 +63,4 @@ if __name__ == "__main__":
 
     # Call the list_states function with provided arguments
     list_states(username, password, database)
+
