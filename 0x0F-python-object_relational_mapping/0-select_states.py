@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
+
 import MySQLdb
 import sys
+
 
 def list_states(username, password, database):
     """
@@ -44,16 +46,17 @@ def list_states(username, password, database):
     except MySQLdb.Error as e:
         print("MySQL Error:", e)
 
+
 if __name__ == "__main__":
     # Check if correct number of arguments is provided
     if len(sys.argv) != 4:
         print("Usage: python script.py <username> <password> <database>")
         sys.exit(1)
-        
+
     # Extract arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    
+
     # Call the list_states function with provided arguments
     list_states(username, password, database)

@@ -3,9 +3,10 @@
 import MySQLdb
 import sys
 
+
 def search_states(username, password, database, state_name):
     """
-    Connects to MySQL, searches for the specified state name in the states table.
+    Connects to MySQL, searches for specified state name in states table.
 
     Args:
         username (str): MySQL username.
@@ -47,12 +48,13 @@ def search_states(username, password, database, state_name):
     except MySQLdb.Error as e:
         print("MySQL Error:", e)
 
+
 if __name__ == "__main__":
     # Extract arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
-    
+
     # Call the search_states function with provided arguments
     search_states(username, password, database, state_name)

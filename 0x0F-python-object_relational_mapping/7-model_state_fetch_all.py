@@ -5,20 +5,24 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def list_states(username, password, database):
     """
-    Connects to MySQL, lists all State objects from the specified database.
+    Connects to MySQL, lists all State objects from the
+    specified database.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
-        database (str): Name of the MySQL database containing the State objects.
+        database (str): Name of the MySQL database
+        containing the State objects.
 
     Returns:
         None. Prints the list of State objects to the console.
     """
     # Create engine to connect to MySQL server
-    engine = create_engine(f'mysql://{username}:{password}@localhost:3306/{database}')
+    engine = create_engine(
+        f'mysql://{username}:{password}@localhost:3306/{database}')
 
     # Bind the engine to the Base class
     Base.metadata.bind = engine
@@ -36,6 +40,7 @@ def list_states(username, password, database):
 
     # Close session
     session.close()
+
 
 if __name__ == "__main__":
     # Extract arguments

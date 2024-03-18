@@ -1,15 +1,18 @@
+#!/usr/bin/python3
+
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
-# Define Base instance
 Base = declarative_base()
 
 
 class State(Base):
-    """
-    Represents a state in the MySQL table states.
-    """
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
+    cities = relationship(
+        "City",
+        cascade="all, delete",
+        back_populates="state")

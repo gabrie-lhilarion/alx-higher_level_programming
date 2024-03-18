@@ -5,21 +5,26 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def print_state_by_name(username, password, database, state_name):
     """
-    Connects to MySQL, prints the State object with the specified name from the specified database.
+    Connects to MySQL, prints the State object with the specified
+    name from the specified database.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
-        database (str): Name of the MySQL database containing the State objects.
+        database (str): Name of the MySQL database containing
+        the State objects.
         state_name (str): Name of the state to search for.
 
     Returns:
-        None. Prints the id of the State object with the specified name to the console, or "Not found" if not found.
+        None. Prints the id of the State object with the specified
+        name to the console, or "Not found" if not found.
     """
     # Create engine to connect to MySQL server
-    engine = create_engine(f'mysql://{username}:{password}@localhost:3306/{database}')
+    engine = create_engine(
+        f'mysql://{username}:{password}@localhost:3306/{database}')
 
     # Bind the engine to the Base class
     Base.metadata.bind = engine
@@ -39,6 +44,7 @@ def print_state_by_name(username, password, database, state_name):
 
     # Close session
     session.close()
+
 
 if __name__ == "__main__":
     # Extract arguments

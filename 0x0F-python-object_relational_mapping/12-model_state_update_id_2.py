@@ -5,20 +5,24 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def change_state_name(username, password, database):
     """
-    Connects to MySQL, changes the name of a State object in the specified database.
+    Connects to MySQL, changes the name of a State object
+    in the specified database.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
-        database (str): Name of the MySQL database containing the State objects.
+        database (str): Name of the MySQL database containing
+        the State objects.
 
     Returns:
         None. Prints a message indicating success or failure.
     """
     # Create engine to connect to MySQL server
-    engine = create_engine(f'mysql://{username}:{password}@localhost:3306/{database}')
+    engine = create_engine(
+        f'mysql://{username}:{password}@localhost:3306/{database}')
 
     # Bind the engine to the Base class
     Base.metadata.bind = engine
@@ -40,6 +44,7 @@ def change_state_name(username, password, database):
 
     # Close session
     session.close()
+
 
 if __name__ == "__main__":
     # Extract arguments

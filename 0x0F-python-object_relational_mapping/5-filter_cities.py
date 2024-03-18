@@ -3,18 +3,22 @@
 import MySQLdb
 import sys
 
+
 def list_cities_by_state(username, password, database, state_name):
     """
-    Connects to MySQL, lists all cities of the specified state from the database.
+    Connects to MySQL, lists all cities of the specified
+    state from the database.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
-        database (str): Name of the MySQL database containing the cities and states tables.
+        database (str): Name of the MySQL database containing
+        the cities and states tables.
         state_name (str): Name of the state to list cities for.
 
     Returns:
-        None. Prints the list of cities for the specified state to the console.
+        None. Prints the list of cities for the specified
+        state to the console.
     """
     try:
         # Connect to MySQL server
@@ -29,10 +33,10 @@ def list_cities_by_state(username, password, database, state_name):
 
         # Construct SQL query with parameterized query to prevent SQL injection
         query = """
-            SELECT cities.name 
-            FROM cities 
-            JOIN states ON cities.state_id = states.id 
-            WHERE states.name = %s 
+            SELECT cities.name
+            FROM cities
+            JOIN states ON cities.state_id = states.id
+            WHERE states.name = %s
             ORDER BY cities.id ASC
         """
 
@@ -53,12 +57,13 @@ def list_cities_by_state(username, password, database, state_name):
     except MySQLdb.Error as e:
         print("MySQL Error:", e)
 
+
 if __name__ == "__main__":
     # Extract arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
-    
+
     # Call the list_cities_by_state function with provided arguments
     list_cities_by_state(username, password, database, state_name)
