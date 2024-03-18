@@ -6,8 +6,4 @@ const langTwo = 'Python is cool'
 
 const langThree = 'JavaScript is amazing'
 
-console.log(langOne)
-
-console.log(langTwo)
-
-console.log(langThree)
+console.log(`${langOne}\n${langTwo}\n${langThree}`);
