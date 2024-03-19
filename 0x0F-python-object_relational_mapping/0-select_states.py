@@ -23,7 +23,6 @@ Example:
     list_states(username, password, database)
 """
 
-
 import MySQLdb
 import sys
 
