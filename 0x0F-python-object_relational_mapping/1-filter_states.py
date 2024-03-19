@@ -43,7 +43,6 @@ def list_states_starting_with_N(username, password, database):
         )
         cursor = connection.cursor()
 
-        # Construct SQL query using format to insert user input
         sql_query = (
             "SELECT * FROM states "
             "WHERE name LIKE '{}' "
