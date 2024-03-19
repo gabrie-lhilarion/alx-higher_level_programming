@@ -34,7 +34,6 @@ def list_states_starting_with_N(username, password, database):
         the console.
     """
     try:
-
         connection = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -44,8 +43,14 @@ def list_states_starting_with_N(username, password, database):
         )
         cursor = connection.cursor()
 
-        cursor.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        # Construct SQL query using format to insert user input
+        sql_query = (
+            "SELECT * FROM states "
+            "WHERE name LIKE '{}' "
+            "ORDER BY id ASC"
+        ).format('N')
+
+        cursor.execute(sql_query)
 
         states = cursor.fetchall()
 
