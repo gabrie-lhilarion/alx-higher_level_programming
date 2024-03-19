@@ -3,11 +3,13 @@
 """
 Module: list_states
 
-This module provides functionality to connect to a MySQL database and list all states
+This module provides functionality to connect to a
+MySQL database and list all states
 from the 'states' table.
 
 Usage:
-    This module can be imported and used to retrieve and display states from a MySQL database.
+    This module can be imported and used to retrieve
+    and display states from a MySQL database.
 
 Example:
     from list_states import list_states
