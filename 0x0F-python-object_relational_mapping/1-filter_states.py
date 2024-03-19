@@ -1,20 +1,37 @@
 #!/usr/bin/python3
 
+"""
+This script connects to a MySQL database and lists states
+starting with 'N' from the specified database.
+
+Usage:
+    python script.py <username> <password> <database>
+
+Arguments:
+    username (str): MySQL username.
+    password (str): MySQL password.
+    database (str): Name of the MySQL database containing
+    the states table.
+"""
+
 import MySQLdb
 import sys
 
 
 def list_states_starting_with_N(username, password, database):
     """
-    Connects to MySQL, lists states starting with 'N' from the database.
+    Connects to MySQL and lists states starting with 'N'
+    from the specified database.
 
     Args:
         username (str): MySQL username.
         password (str): MySQL password.
-        database (str): Name of the MySQL database containing the states table.
+        database (str): Name of the MySQL database containing
+        the states table.
 
     Returns:
-        None. Prints the list of states starting with 'N' to the console.
+        None. Prints the list of states starting with 'N' to
+        the console.
     """
     try:
         # Connect to MySQL server
@@ -27,7 +44,7 @@ def list_states_starting_with_N(username, password, database):
         )
         cursor = connection.cursor()
 
-        # Execute query
+        # Execute query to retrieve states starting with 'N'
         cursor.execute(
             "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
@@ -47,7 +64,11 @@ def list_states_starting_with_N(username, password, database):
 
 
 if __name__ == "__main__":
-    # Extract arguments
+    """
+    Entry point of the script. Connects to MySQL and lists
+    states starting with 'N'.
+    """
+    # Extract MySQL credentials from command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
