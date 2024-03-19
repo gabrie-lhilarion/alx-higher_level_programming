@@ -1,5 +1,20 @@
 #!/usr/bin/python3
 
+"""
+This script connects to a MySQL database and lists states
+starting with 'N' from the specified database.
+
+Usage:
+    python script.py <username> <password> <database>
+
+Arguments:
+    username (str): MySQL username.
+    password (str): MySQL password.
+    database (str): Name of the MySQL database containing
+    the states table.
+"""
+
+
 import MySQLdb
 import sys
 
