@@ -1,5 +1,27 @@
 #!/usr/bin/python3
 
+"""
+Module: list_states
+
+This module provides functionality to connect to a MySQL database and list all states
+from the 'states' table.
+
+Usage:
+    This module can be imported and used to retrieve and display states from a MySQL database.
+
+Example:
+    from list_states import list_states
+
+    # Provide MySQL credentials
+    username = "root"
+    password = "password"
+    database = "my_database"
+
+    # Call the list_states function
+    list_states(username, password, database)
+"""
+
+
 import MySQLdb
 import sys
 
