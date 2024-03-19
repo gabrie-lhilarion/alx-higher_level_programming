@@ -14,7 +14,6 @@ Arguments:
     the states table.
 """
 
-
 import MySQLdb
 import sys
 
@@ -32,7 +31,6 @@ def list_states_starting_with_N(username, password, database):
         None. Prints the list of states starting with 'N' to the console.
     """
     try:
-
         connection = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -58,7 +56,6 @@ def list_states_starting_with_N(username, password, database):
 
 
 if __name__ == "__main__":
-
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
