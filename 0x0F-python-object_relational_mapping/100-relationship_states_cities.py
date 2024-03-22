@@ -29,29 +29,23 @@ def create_state_and_city(username, password, database):
     Returns:
         None.
     """
-    # Create engine to connect to MySQL server
+
     engine = create_engine(
         f'mysql://{username}:{password}@localhost:3306/{database}')
 
-    # Bind the engine to the Base class
     Base.metadata.bind = engine
 
-    # Create a session
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
-    # Create State object "California"
     california = State(name="California")
 
-    # Create City object "San Francisco" linked to "California"
     san_francisco = City(name="San Francisco", state=california)
 
-    # Add State and City objects to session and commit changes
     session.add(california)
     session.add(san_francisco)
     session.commit()
 
-    # Close session
     session.close()
 
 
@@ -61,5 +55,4 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Call the create_state_and_city function with provided arguments
     create_state_and_city(username, password, database)
