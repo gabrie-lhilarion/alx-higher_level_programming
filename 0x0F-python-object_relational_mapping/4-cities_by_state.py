@@ -35,7 +35,7 @@ def list_cities(username, password, database):
         states to the console.
     """
     try:
-        # Connect to MySQL server
+
         connection = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -45,7 +45,6 @@ def list_cities(username, password, database):
         )
         cursor = connection.cursor()
 
-        # Construct SQL query with JOIN
         query = """
             SELECT cities.id, cities.name, states.name
             FROM cities
@@ -53,17 +52,12 @@ def list_cities(username, password, database):
             ORDER BY cities.id ASC
         """
 
-        # Execute query
         cursor.execute(query)
-
-        # Fetch all results
         cities = cursor.fetchall()
 
-        # Display results
         for city in cities:
             print(city)
 
-        # Close cursor and connection
         cursor.close()
         connection.close()
 
@@ -72,10 +66,9 @@ def list_cities(username, password, database):
 
 
 if __name__ == "__main__":
-    # Extract arguments
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Call the list_cities function with provided arguments
     list_cities(username, password, database)
