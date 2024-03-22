@@ -1,7 +1,13 @@
+#!/usr/bin/python3
+
+"""
+Represents a state in the MySQL table states.
+"""
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
-# Define Base instance
+
 Base = declarative_base()
 
 
