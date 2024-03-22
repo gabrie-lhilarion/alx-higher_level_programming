@@ -1,5 +1,20 @@
 #!/usr/bin/python3
 
+"""
+Connects to MySQL, lists all cities from the specified
+database with their respective states.
+
+Args:
+    username (str): MySQL username.
+    password (str): MySQL password.
+    database (str): Name of the MySQL database containing
+    the cities and states tables.
+
+Returns:
+    None. Prints the list of cities with their respective
+    states to the console.
+"""
+
 import MySQLdb
 import sys
 
