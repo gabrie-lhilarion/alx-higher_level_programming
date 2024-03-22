@@ -1,5 +1,19 @@
 #!/usr/bin/python3
 
+"""
+Connects to MySQL, searches for specified state name
+in states table.
+
+Usage:
+    ./script.py <username> <password> <database> <name>
+
+Arguments:
+    username (str): MySQL username.
+    password (str): MySQL password.
+    database (str): Name of the MySQL database containing the states table.
+    state_name (str): Name of the state to search for.
+"""
+
 import MySQLdb
 import sys
 
