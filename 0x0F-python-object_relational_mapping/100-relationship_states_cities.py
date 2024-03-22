@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+"""
+Connects to MySQL, creates the State "California" with
+the City "San Francisco" in the specified database.
+
+Returns:
+    None.
+"""
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
