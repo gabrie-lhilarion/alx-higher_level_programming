@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 This script defines the City class, representing a city in the
 MySQL database.
