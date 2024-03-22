@@ -32,7 +32,6 @@ def search_states(username, password, database, state_name):
         None. Prints the matching states to the console.
     """
     try:
-
         connection = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -42,9 +41,11 @@ def search_states(username, password, database, state_name):
         )
         cursor = connection.cursor()
 
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        query = ("SELECT * FROM states "
+                 "WHERE name = '{}' "
+                 "ORDER BY id ASC").format(state_name)
 
-        cursor.execute(query, (state_name,))
+        cursor.execute(query)
 
         states = cursor.fetchall()
 
