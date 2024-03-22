@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+"""
+Connects to MySQL, deletes all State objects with a name containing
+the letter 'a' from the specified database.
+
+Returns:
+    None. Prints a message indicating the number of deleted records.
+"""
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -20,22 +28,18 @@ def delete_states_with_letter_a(username, password, database):
     Returns:
         None. Prints a message indicating the number of deleted records.
     """
-    # Create engine to connect to MySQL server
+
     engine = create_engine(
         f'mysql://{username}:{password}@localhost:3306/{database}')
 
-    # Bind the engine to the Base class
     Base.metadata.bind = engine
 
-    # Create a session
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
-    # Query State objects with a name containing the letter 'a'
     states_to_delete = session.query(
         State).filter(State.name.like('%a%')).all()
 
-    # Delete the queried State objects
     if states_to_delete:
         for state in states_to_delete:
             session.delete(state)
@@ -44,15 +48,13 @@ def delete_states_with_letter_a(username, password, database):
     else:
         print("No State objects found with a name containing the letter 'a'.")
 
-    # Close session
     session.close()
 
 
 if __name__ == "__main__":
-    # Extract arguments
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Call the delete_states_with_letter_a function with provided arguments
     delete_states_with_letter_a(username, password, database)
