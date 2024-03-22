@@ -50,7 +50,7 @@ def create_state_and_city(username, password, database):
 
 
 if __name__ == "__main__":
-    # Extract arguments
+    
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
