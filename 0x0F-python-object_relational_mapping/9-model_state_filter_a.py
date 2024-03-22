@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 
+"""
+Connects to MySQL, lists all State objects containing the
+letter 'a' from the specified database.
+
+Returns:
+    None. Prints the list of State objects containing the
+    letter 'a' to the console.
+"""
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -21,35 +30,29 @@ def list_states_with_letter_a(username, password, database):
         None. Prints the list of State objects containing the
         letter 'a' to the console.
     """
-    # Create engine to connect to MySQL server
+
     engine = create_engine(
         f'mysql://{username}:{password}@localhost:3306/{database}')
 
-    # Bind the engine to the Base class
     Base.metadata.bind = engine
 
-    # Create a session
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
-    # Query State objects containing the letter 'a' and sort by id
     states_with_a = session.query(State).filter(
         State.name.like('%a%')).order_by(
         State.id).all()
 
-    # Display results
     for state in states_with_a:
         print(f"{state.id}: {state.name}")
 
-    # Close session
     session.close()
 
 
 if __name__ == "__main__":
-    # Extract arguments
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Call the list_states_with_letter_a function with provided arguments
     list_states_with_letter_a(username, password, database)
