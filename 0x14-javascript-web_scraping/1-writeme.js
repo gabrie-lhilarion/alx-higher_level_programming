@@ -1,9 +1,9 @@
-#!/home/codemaster/.nvm/versions/node/v14.21.3/bin/node
+#!/usr/bin/node
 const fs = require('fs');
 const filePath = process.argv[2];
 const content = process.argv[3];
 fs.writeFile(filePath, content, 'utf-8', (err) => {
-  if (err) {
-    console.error(err);
-  }
+    if (err) {
+        console.error(err);
+    }
 });
