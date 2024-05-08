@@ -19,8 +19,13 @@ def number_of_subscribers(subreddit):
         int: The number of subscribers of the subreddit.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    # Custom User-Agent to avoid Too Many Requests error
-    headers = {"User-Agent": "Mozilla/5.0"}
+
+    headers = {
+        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/58.0.3029.110 Safari/537.36")
+    }
+
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
